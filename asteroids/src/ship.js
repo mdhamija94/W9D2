@@ -2,8 +2,8 @@ const MovingObject = require("./moving_objects.js");
 const Util = require("./util.js");
 const Bullet = require("./bullet.js");
 
-Ship.COLOR = "#00f";
-Ship.RADIUS = 5;
+Ship.COLOR = "darkred";
+Ship.RADIUS = 10;
 
 function Ship(pos) {
   MovingObject.call(this, { pos });
@@ -21,14 +21,14 @@ Ship.prototype.power = function(impulse) {
 };
 
 Ship.prototype.fireBullet = function() {
-  if (this.vel[0] !== 0 && this.vel[1] !== 0) {
-    let newVel = [this.vel[0] * 2, this.vel[1] * 2];
+  if (!(this.vel[0] === 0 && this.vel[1] === 0)) {
+    let newVel = [this.vel[0] * 5, this.vel[1] * 5];
     let newPos = this.pos.slice(0);
     let bullet = new Bullet(newPos, newVel);
     this.bullets.push(bullet);
   }
 
-  if (this.bullets.length > 10) {
+  if (this.bullets.length > 100) {
     this.bullets.shift();
   }
 };

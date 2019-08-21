@@ -1,5 +1,3 @@
-// const Game = require("./game.js");
-
 function MovingObject (options) {
   this.pos = options.pos;
   this.vel = options.vel;
@@ -8,10 +6,10 @@ function MovingObject (options) {
 }
 
 MovingObject.prototype.draw = function (ctx) {
-  ctx.strokeStyle = "white";
+  ctx.strokeStyle = this.color;
   ctx.fillStyle = this.color;
   ctx.beginPath();
-  ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);
+  ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2.0 * Math.PI);
   ctx.stroke();
   ctx.fill();
 };
@@ -19,7 +17,6 @@ MovingObject.prototype.draw = function (ctx) {
 MovingObject.prototype.move = function (ctx) {
   this.pos[0] += this.vel[0];
   this.pos[1] += this.vel[1];
-  // this.pos = Game.prototype.wrap(this.pos);
 };
 
 MovingObject.prototype.isCollidedWith = function (otherObject) {

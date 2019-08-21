@@ -1,8 +1,8 @@
 const MovingObject = require("./moving_objects.js");
 const Util = require("./util.js");
 
-Bullet.COLOR = "#000000";
-Bullet.RADIUS = 2;
+Bullet.COLOR = "goldenrod";
+Bullet.RADIUS = 3;
 
 function Bullet(pos, vel) {
   MovingObject.call(this, { pos });
